@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"/></head>
+<body>
+<form action="#"
+      th:action="@{/process}"
+      th:object="${message}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    Content :<textarea rows="3" class="form-control" th:field="*{content}" placeholder="Text input" />
+    <span th:if="${#fields.hasErrors('content')}"
+          th:errors="*{name}"></span><br />
+
+    Date :<input type="text" class="form-control" th:field="*{date}" placeholder="Text input" />
+    <span th:if="${#fields.hasErrors('date')}"
+          th:errors="*{date}"></span><br />
+
+    Sender  <input type="text" class="form-control" th:field="*{sender}" placeholder="Text input"/>
+    <span th:if="${#fields.hasErrors('sender')}"
+          th:errors="*{sender}"></span><br />
+    <br />
+
+
+    <input class="btn btn-default" type="submit" value="Submit"/>
+</form>
+</body>
+</html>
